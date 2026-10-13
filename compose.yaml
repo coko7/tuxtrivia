@@ -1,0 +1,21 @@
+# Adjust the host, entrypoint and cert resolver names to match your Traefik setup.
+services:
+  tuxtrivia:
+    build: .
+    container_name: tuxtrivia
+    restart: unless-stopped
+    environment:
+      SERVER_LOG_LEVEL: warn
+      SERVER_COMPRESSION: "true"
+      SERVER_CACHE_CONTROL_HEADERS: "true"
+    networks: [traefik]
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.tuxtrivia.rule: Host(`tuxtrivia.example.com`)
+      traefik.http.routers.tuxtrivia.entrypoints: websecure
+      traefik.http.routers.tuxtrivia.tls.certresolver: letsencrypt
+      traefik.http.services.tuxtrivia.loadbalancer.server.port: "80"
+
+networks:
+  traefik:
+    external: true

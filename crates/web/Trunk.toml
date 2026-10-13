@@ -1,0 +1,10 @@
+[build]
+target = "index.html"
+dist = "dist"
+# Relative asset URLs, so the game also works under a sub-path
+# (e.g. Traefik routing example.com/tuxtrivia).
+public_url = "./"
+
+[serve]
+addresses = ["127.0.0.1"]
+port = 8088

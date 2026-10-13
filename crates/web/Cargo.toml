@@ -1,0 +1,14 @@
+[package]
+name = "tuxtrivia-web"
+description = "TuxTrivia browser frontend (Leptos, client-side rendered)"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+
+[dependencies]
+tuxtrivia-core.workspace = true
+fastrand.workspace = true
+leptos = { version = "0.8", features = ["csr"] }
+console_error_panic_hook = "0.1"
+js-sys = "0.3"
+web-sys = { version = "0.3", features = ["Storage", "Window", "KeyboardEvent"] }

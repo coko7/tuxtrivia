@@ -1,0 +1,1692 @@
+# TuxTrivia roster.
+#
+# Each [[person]] generates many questions: who made X, what did Y make,
+# when was X released, guess-who from clues, and who-is-this (portrait).
+#
+# Fields:
+#   id         slug, unique; also the portrait file stem
+#   name       display name
+#   born       optional birth year
+#   country    optional, as commonly described
+#   wikipedia  optional English Wikipedia article title about the person;
+#              its free lead image becomes the portrait
+#   category   pioneers | unix | languages | distros | tools
+#   creations  list of { name, year?, kind }
+#              kind: language | os | distro | tool | software | algorithm |
+#                    concept | hardware | book | protocol | format
+#              Leave `year` out when it's fuzzy; only dated creations
+#              appear in "when" questions.
+#   clues      vaguest first; never include the person's surname.
+#              (`cargo test` checks this, and that the file parses.)
+#
+# Co-creators: give the creation the exact same name on each person so
+# they're never used as wrong answers for each other.
+
+# ─── Pioneers & theory ────────────────────────────────────────────────
+
+[[person]]
+id = "babbage"
+name = "Charles Babbage"
+born = 1791
+country = "UK"
+wikipedia = "Charles_Babbage"
+category = "pioneers"
+creations = [
+  { name = "Difference Engine", year = 1822, kind = "hardware" },
+  { name = "Analytical Engine", year = 1837, kind = "hardware" },
+]
+clues = [
+  "Held the Lucasian Chair of Mathematics at Cambridge, like Newton before him",
+  "Designed a general-purpose mechanical computer that was never finished in his lifetime",
+  "Ada Lovelace wrote her famous notes about his machine",
+]
+
+[[person]]
+id = "lovelace"
+name = "Ada Lovelace"
+born = 1815
+country = "UK"
+wikipedia = "Ada_Lovelace"
+category = "pioneers"
+creations = [
+  { name = "First published computer program (Note G)", year = 1843, kind = "algorithm" },
+]
+clues = [
+  "Daughter of a famous Romantic poet",
+  "Her notes on a mechanical engine included a method to compute Bernoulli numbers",
+  "A language commissioned by the US Department of Defense is named after her",
+]
+
+[[person]]
+id = "boole"
+name = "George Boole"
+born = 1815
+country = "UK"
+wikipedia = "George_Boole"
+category = "pioneers"
+creations = [
+  { name = "Boolean algebra", kind = "concept" },
+  { name = "The Laws of Thought", year = 1854, kind = "book" },
+]
+clues = [
+  "Largely self-taught English mathematician who became a professor in Cork, Ireland",
+  "Reduced logic to algebra over just two values",
+  "Every `bool` type is named after him",
+]
+
+[[person]]
+id = "turing"
+name = "Alan Turing"
+born = 1912
+country = "UK"
+wikipedia = "Alan_Turing"
+category = "pioneers"
+creations = [
+  { name = "Turing machine", year = 1936, kind = "concept" },
+  { name = "Turing test", year = 1950, kind = "concept" },
+  { name = "Bombe (Enigma codebreaking)", kind = "hardware" },
+]
+clues = [
+  "Worked at Bletchley Park during the Second World War",
+  "Proved the halting problem is undecidable",
+  "Computing's most prestigious award is named after him",
+]
+
+[[person]]
+id = "church"
+name = "Alonzo Church"
+born = 1903
+country = "USA"
+wikipedia = "Alonzo_Church"
+category = "pioneers"
+creations = [
+  { name = "Lambda calculus", kind = "concept" },
+  { name = "Church–Turing thesis", kind = "concept" },
+]
+clues = [
+  "Princeton logician",
+  "Was Alan Turing's doctoral advisor",
+  "Invented the formalism behind every `λ` in functional programming",
+]
+
+[[person]]
+id = "von-neumann"
+name = "John von Neumann"
+born = 1903
+country = "Hungary / USA"
+wikipedia = "John_von_Neumann"
+category = "pioneers"
+creations = [
+  { name = "Von Neumann architecture", year = 1945, kind = "concept" },
+  { name = "Merge sort", year = 1945, kind = "algorithm" },
+]
+clues = [
+  "Budapest-born polymath who also founded game theory",
+  "Worked on the Manhattan Project",
+  "His 1945 EDVAC report described the stored-program computer",
+]
+
+[[person]]
+id = "shannon"
+name = "Claude Shannon"
+born = 1916
+country = "USA"
+wikipedia = "Claude_Shannon"
+category = "pioneers"
+creations = [
+  { name = "Information theory", year = 1948, kind = "concept" },
+]
+clues = [
+  "Built juggling machines and a maze-solving mechanical mouse",
+  "His master's thesis showed Boolean algebra could design switching circuits",
+  "His 1948 paper was the first to use the word 'bit' in print",
+]
+
+[[person]]
+id = "zuse"
+name = "Konrad Zuse"
+born = 1910
+country = "Germany"
+wikipedia = "Konrad_Zuse"
+category = "pioneers"
+creations = [
+  { name = "Z3", year = 1941, kind = "hardware" },
+  { name = "Plankalkül", kind = "language" },
+]
+clues = [
+  "Civil engineer who built his first computers in his parents' Berlin flat",
+  "Designed what is often called the first high-level programming language",
+  "His 1941 machine was the first working programmable, fully automatic digital computer",
+]
+
+[[person]]
+id = "hopper"
+name = "Grace Hopper"
+born = 1906
+country = "USA"
+wikipedia = "Grace_Hopper"
+category = "pioneers"
+creations = [
+  { name = "A-0 System", year = 1952, kind = "software" },
+  { name = "FLOW-MATIC", kind = "language" },
+]
+clues = [
+  "Retired from the US Navy as a rear admiral",
+  "Her team taped a moth from the Harvard Mark II into a logbook as the first actual 'bug'",
+  "Nicknamed 'Amazing Grace'; her work led directly to COBOL",
+]
+
+[[person]]
+id = "backus"
+name = "John Backus"
+born = 1924
+country = "USA"
+wikipedia = "John_Backus"
+category = "pioneers"
+creations = [
+  { name = "Fortran", year = 1957, kind = "language" },
+  { name = "Backus–Naur form", kind = "concept" },
+]
+clues = [
+  "Led a team at IBM in the 1950s",
+  "His Turing lecture asked whether programming could be liberated from the von Neumann style",
+  "Gave his name (with Peter Naur) to the notation used for grammars",
+]
+
+[[person]]
+id = "mccarthy"
+name = "John McCarthy"
+born = 1927
+country = "USA"
+wikipedia = "John_McCarthy_(computer_scientist)"
+category = "pioneers"
+creations = [
+  { name = "Lisp", year = 1958, kind = "language" },
+  { name = "Garbage collection", kind = "concept" },
+]
+clues = [
+  "Co-organised the 1956 Dartmouth workshop",
+  "Coined the term 'artificial intelligence'",
+  "Created the language of parentheses",
+]
+
+[[person]]
+id = "dijkstra"
+name = "Edsger W. Dijkstra"
+born = 1930
+country = "Netherlands"
+wikipedia = "Edsger_W._Dijkstra"
+category = "pioneers"
+creations = [
+  { name = "Shortest path algorithm", year = 1956, kind = "algorithm" },
+  { name = "Semaphores", kind = "concept" },
+  { name = "THE multiprogramming system", kind = "os" },
+]
+clues = [
+  "Wrote over a thousand numbered manuscripts by hand, known by their EWD numbers",
+  "Posed the dining philosophers problem",
+  "Wrote the letter 'Go To Statement Considered Harmful'",
+]
+
+[[person]]
+id = "hoare"
+name = "Tony Hoare"
+born = 1934
+country = "UK"
+wikipedia = "Tony_Hoare"
+category = "pioneers"
+creations = [
+  { name = "Quicksort", year = 1959, kind = "algorithm" },
+  { name = "Communicating Sequential Processes", year = 1978, kind = "concept" },
+  { name = "Null reference", year = 1965, kind = "concept" },
+]
+clues = [
+  "Invented one of the most used sorting algorithms while a student in Moscow",
+  "His logic of preconditions and postconditions is used to prove programs correct",
+  "Called his invention of the null reference a 'billion-dollar mistake'",
+]
+
+[[person]]
+id = "knuth"
+name = "Donald Knuth"
+born = 1938
+country = "USA"
+wikipedia = "Donald_Knuth"
+category = "pioneers"
+creations = [
+  { name = "The Art of Computer Programming", year = 1968, kind = "book" },
+  { name = "TeX", year = 1978, kind = "software" },
+]
+clues = [
+  "Sends $2.56 reward cheques to people who find errors in his books",
+  "Popularised the analysis of algorithms and big-O notation in CS",
+  "Wrote a typesetting system because he disliked how his books looked",
+]
+
+[[person]]
+id = "liskov"
+name = "Barbara Liskov"
+born = 1939
+country = "USA"
+wikipedia = "Barbara_Liskov"
+category = "pioneers"
+creations = [
+  { name = "CLU", year = 1975, kind = "language" },
+  { name = "Liskov substitution principle", year = 1987, kind = "concept" },
+]
+clues = [
+  "One of the first women in the US to earn a PhD in computer science",
+  "Won the Turing Award in 2008",
+  "The 'L' in SOLID",
+]
+
+[[person]]
+id = "hamilton"
+name = "Margaret Hamilton"
+born = 1936
+country = "USA"
+wikipedia = "Margaret_Hamilton_(software_engineer)"
+category = "pioneers"
+creations = [
+  { name = "Apollo flight software", year = 1969, kind = "software" },
+]
+clues = [
+  "Led software engineering at MIT's Instrumentation Laboratory",
+  "Popularised the term 'software engineering'",
+  "Famous photo: standing next to a printout of code as tall as she is",
+]
+
+[[person]]
+id = "allen"
+name = "Frances Allen"
+born = 1932
+country = "USA"
+wikipedia = "Frances_Allen"
+category = "pioneers"
+creations = [
+  { name = "Control-flow analysis", kind = "concept" },
+]
+clues = [
+  "Spent her whole 45-year career at IBM",
+  "Pioneered optimising compilers and automatic parallelisation",
+  "First woman to receive the Turing Award, in 2006",
+]
+
+[[person]]
+id = "wirth"
+name = "Niklaus Wirth"
+born = 1934
+country = "Switzerland"
+wikipedia = "Niklaus_Wirth"
+category = "pioneers"
+creations = [
+  { name = "Pascal", year = 1970, kind = "language" },
+  { name = "Modula-2", year = 1978, kind = "language" },
+  { name = "Oberon", year = 1987, kind = "language" },
+  { name = "Algorithms + Data Structures = Programs", year = 1976, kind = "book" },
+]
+clues = [
+  "ETH Zürich professor",
+  "Has a 'law': software gets slower faster than hardware gets faster",
+  "Designed a teaching language named after a French mathematician",
+]
+
+[[person]]
+id = "lamport"
+name = "Leslie Lamport"
+born = 1941
+country = "USA"
+wikipedia = "Leslie_Lamport"
+category = "pioneers"
+creations = [
+  { name = "LaTeX", year = 1984, kind = "software" },
+  { name = "Paxos", kind = "algorithm" },
+  { name = "TLA+", year = 1999, kind = "language" },
+  { name = "Logical clocks", year = 1978, kind = "concept" },
+]
+clues = [
+  "Defined a distributed system as one where a computer you didn't know existed can break yours",
+  "Described a consensus algorithm through a fictional Greek island parliament",
+  "Wrote the macros most scientific papers are typeset with",
+]
+
+[[person]]
+id = "codd"
+name = "Edgar F. Codd"
+born = 1923
+country = "UK"
+wikipedia = "Edgar_F._Codd"
+category = "pioneers"
+creations = [
+  { name = "Relational model", year = 1970, kind = "concept" },
+]
+clues = [
+  "RAF pilot in WWII who later worked at IBM",
+  "Defined a set of normal forms for data",
+  "Every SQL table rests on his 1970 paper",
+]
+
+[[person]]
+id = "cook"
+name = "Stephen Cook"
+born = 1939
+country = "USA / Canada"
+wikipedia = "Stephen_Cook"
+category = "pioneers"
+creations = [
+  { name = "NP-completeness (Cook–Levin theorem)", year = 1971, kind = "concept" },
+]
+clues = [
+  "Denied tenure at Berkeley, moved to the University of Toronto",
+  "Proved that boolean satisfiability is NP-complete",
+  "Formalised the question of whether P equals NP",
+]
+
+[[person]]
+id = "brooks"
+name = "Fred Brooks"
+born = 1931
+country = "USA"
+wikipedia = "Fred_Brooks"
+category = "pioneers"
+creations = [
+  { name = "The Mythical Man-Month", year = 1975, kind = "book" },
+  { name = "IBM System/360", year = 1964, kind = "hardware" },
+]
+clues = [
+  "Managed IBM's System/360 and OS/360",
+  "Popularised the 8-bit byte",
+  "Adding manpower to a late software project makes it later",
+]
+
+[[person]]
+id = "sutherland"
+name = "Ivan Sutherland"
+born = 1938
+country = "USA"
+wikipedia = "Ivan_Sutherland"
+category = "pioneers"
+creations = [
+  { name = "Sketchpad", year = 1963, kind = "software" },
+]
+clues = [
+  "Considered the father of computer graphics",
+  "Built an early head-mounted display nicknamed the Sword of Damocles",
+  "His PhD program let you draw on screen with a light pen",
+]
+
+[[person]]
+id = "engelbart"
+name = "Douglas Engelbart"
+born = 1925
+country = "USA"
+wikipedia = "Douglas_Engelbart"
+category = "pioneers"
+creations = [
+  { name = "Computer mouse", year = 1964, kind = "hardware" },
+  { name = "The Mother of All Demos", year = 1968, kind = "software" },
+]
+clues = [
+  "Ran the Augmentation Research Center at SRI",
+  "In 1968 showed hypertext, video conferencing and collaborative editing in one live demo",
+  "Invented a wooden pointing device with two wheels",
+]
+
+[[person]]
+id = "kay"
+name = "Alan Kay"
+born = 1940
+country = "USA"
+wikipedia = "Alan_Kay"
+category = "pioneers"
+creations = [
+  { name = "Smalltalk", year = 1972, kind = "language" },
+  { name = "Dynabook", kind = "concept" },
+]
+clues = [
+  "Worked at Xerox PARC",
+  "Imagined a tablet computer for children decades early",
+  "Coined the term 'object-oriented programming'",
+]
+
+[[person]]
+id = "cerf"
+name = "Vint Cerf"
+born = 1943
+country = "USA"
+wikipedia = "Vint_Cerf"
+category = "pioneers"
+creations = [
+  { name = "TCP/IP", year = 1974, kind = "protocol" },
+]
+clues = [
+  "Later became Google's Chief Internet Evangelist",
+  "Known for wearing three-piece suits",
+  "One of the two 'fathers of the Internet'",
+]
+
+[[person]]
+id = "kahn"
+name = "Bob Kahn"
+born = 1938
+country = "USA"
+wikipedia = "Bob_Kahn"
+category = "pioneers"
+creations = [
+  { name = "TCP/IP", year = 1974, kind = "protocol" },
+]
+clues = [
+  "Worked on ARPANET at BBN and DARPA",
+  "Shared the 2004 Turing Award with his co-author",
+  "One of the two 'fathers of the Internet'",
+]
+
+[[person]]
+id = "berners-lee"
+name = "Tim Berners-Lee"
+born = 1955
+country = "UK"
+wikipedia = "Tim_Berners-Lee"
+category = "pioneers"
+creations = [
+  { name = "World Wide Web", year = 1989, kind = "protocol" },
+  { name = "HTML", kind = "format" },
+  { name = "WorldWideWeb browser", year = 1990, kind = "software" },
+]
+clues = [
+  "Wrote a proposal his boss annotated 'Vague but exciting'",
+  "Built the first web server on a NeXT computer at CERN",
+  "Founded the W3C",
+]
+
+[[person]]
+id = "diffie"
+name = "Whitfield Diffie"
+born = 1944
+country = "USA"
+wikipedia = "Whitfield_Diffie"
+category = "pioneers"
+creations = [
+  { name = "Diffie–Hellman key exchange", year = 1976, kind = "algorithm" },
+]
+clues = [
+  "Long-haired cryptographer and privacy advocate",
+  "Co-wrote 'New Directions in Cryptography'",
+  "Showed two parties can agree on a secret over a public channel",
+]
+
+[[person]]
+id = "hellman"
+name = "Martin Hellman"
+born = 1945
+country = "USA"
+wikipedia = "Martin_Hellman"
+category = "pioneers"
+creations = [
+  { name = "Diffie–Hellman key exchange", year = 1976, kind = "algorithm" },
+]
+clues = [
+  "Stanford professor of electrical engineering",
+  "Shared the 2015 Turing Award",
+  "Co-invented public-key key agreement",
+]
+
+[[person]]
+id = "rivest"
+name = "Ron Rivest"
+born = 1947
+country = "USA"
+wikipedia = "Ron_Rivest"
+category = "pioneers"
+creations = [
+  { name = "RSA", year = 1977, kind = "algorithm" },
+  { name = "MD5", year = 1991, kind = "algorithm" },
+  { name = "RC4", year = 1987, kind = "algorithm" },
+]
+clues = [
+  "MIT professor and co-author of the 'CLRS' algorithms textbook",
+  "Designed a hash function now considered broken",
+  "The 'R' in a famous three-letter cipher",
+]
+
+[[person]]
+id = "shamir"
+name = "Adi Shamir"
+born = 1952
+country = "Israel"
+wikipedia = "Adi_Shamir"
+category = "pioneers"
+creations = [
+  { name = "RSA", year = 1977, kind = "algorithm" },
+  { name = "Secret sharing", year = 1979, kind = "algorithm" },
+  { name = "Differential cryptanalysis", kind = "concept" },
+]
+clues = [
+  "Professor at the Weizmann Institute",
+  "Showed how to split a secret so any k of n people can rebuild it",
+  "The 'S' in a famous three-letter cipher",
+]
+
+[[person]]
+id = "adleman"
+name = "Leonard Adleman"
+born = 1945
+country = "USA"
+wikipedia = "Leonard_Adleman"
+category = "pioneers"
+creations = [
+  { name = "RSA", year = 1977, kind = "algorithm" },
+  { name = "DNA computing", year = 1994, kind = "concept" },
+]
+clues = [
+  "Solved a small travelling-path problem with test tubes of DNA",
+  "Coined the term 'computer virus' for his student Fred Cohen's work",
+  "The 'A' in a famous three-letter cipher",
+]
+
+# ─── Unix, C & free software ──────────────────────────────────────────
+
+[[person]]
+id = "thompson"
+name = "Ken Thompson"
+born = 1943
+country = "USA"
+wikipedia = "Ken_Thompson"
+category = "unix"
+creations = [
+  { name = "Unix", year = 1969, kind = "os" },
+  { name = "B", year = 1969, kind = "language" },
+  { name = "UTF-8", year = 1992, kind = "format" },
+  { name = "Go", year = 2009, kind = "language" },
+  { name = "grep", year = 1973, kind = "tool" },
+]
+clues = [
+  "Built Belle, a chess machine that became computer chess champion",
+  "His Turing lecture 'Reflections on Trusting Trust' describes a backdoored compiler",
+  "Wrote the first version of an OS on a PDP-7 at Bell Labs",
+]
+
+[[person]]
+id = "ritchie"
+name = "Dennis Ritchie"
+born = 1941
+country = "USA"
+wikipedia = "Dennis_Ritchie"
+category = "unix"
+creations = [
+  { name = "C", year = 1972, kind = "language" },
+  { name = "Unix", year = 1969, kind = "os" },
+  { name = "The C Programming Language", year = 1978, kind = "book" },
+]
+clues = [
+  "Spent his career at Bell Labs and was known as 'dmr'",
+  "Died in October 2011, a week after Steve Jobs, to far less attention",
+  "The 'R' in K&R",
+]
+
+[[person]]
+id = "kernighan"
+name = "Brian Kernighan"
+born = 1942
+country = "Canada"
+wikipedia = "Brian_Kernighan"
+category = "unix"
+creations = [
+  { name = "AWK", year = 1977, kind = "language" },
+  { name = "The C Programming Language", year = 1978, kind = "book" },
+]
+clues = [
+  "Princeton professor who coined the name 'Unix'",
+  "Made 'hello, world' the canonical first program",
+  "The 'K' in both K&R and AWK",
+]
+
+[[person]]
+id = "mcilroy"
+name = "Doug McIlroy"
+born = 1932
+country = "USA"
+wikipedia = "Douglas_McIlroy"
+category = "unix"
+creations = [
+  { name = "Unix pipes", year = 1973, kind = "concept" },
+  { name = "diff", year = 1974, kind = "tool" },
+]
+clues = [
+  "Headed the Bell Labs department where Unix was born",
+  "Summed up the Unix philosophy: do one thing and do it well",
+  "Pushed for programs to be connected 'like garden hoses'",
+]
+
+[[person]]
+id = "pike"
+name = "Rob Pike"
+born = 1956
+country = "Canada"
+wikipedia = "Rob_Pike"
+category = "unix"
+creations = [
+  { name = "Plan 9 from Bell Labs", kind = "os" },
+  { name = "UTF-8", year = 1992, kind = "format" },
+  { name = "Go", year = 2009, kind = "language" },
+  { name = "acme", kind = "tool" },
+]
+clues = [
+  "Co-wrote 'The Unix Programming Environment' with Kernighan",
+  "Designed a text encoding on a placemat in a New Jersey diner",
+  "Co-created a language whose mascot is a gopher",
+]
+
+[[person]]
+id = "bourne"
+name = "Stephen Bourne"
+born = 1944
+country = "UK"
+wikipedia = "Stephen_R._Bourne"
+category = "unix"
+creations = [
+  { name = "Bourne shell", year = 1979, kind = "tool" },
+]
+clues = [
+  "Wrote an ALGOL 68 compiler at Cambridge before joining Bell Labs",
+  "His C code used macros to make it look like ALGOL",
+  "The 'B' in bash is a pun on his name",
+]
+
+[[person]]
+id = "joy"
+name = "Bill Joy"
+born = 1954
+country = "USA"
+wikipedia = "Bill_Joy"
+category = "unix"
+creations = [
+  { name = "vi", year = 1976, kind = "tool" },
+  { name = "csh", year = 1978, kind = "tool" },
+  { name = "Berkeley Software Distribution", kind = "os" },
+]
+clues = [
+  "Co-founded Sun Microsystems",
+  "Wrote the essay 'Why the Future Doesn't Need Us'",
+  "Wrote a visual editor on an ADM-3A terminal, hence hjkl",
+]
+
+[[person]]
+id = "stallman"
+name = "Richard Stallman"
+born = 1953
+country = "USA"
+wikipedia = "Richard_Stallman"
+category = "unix"
+creations = [
+  { name = "GNU Project", year = 1983, kind = "os" },
+  { name = "GNU Emacs", year = 1985, kind = "tool" },
+  { name = "GCC", year = 1987, kind = "software" },
+  { name = "GNU General Public License", year = 1989, kind = "concept" },
+]
+clues = [
+  "Hacker from the MIT AI Lab, known as 'rms'",
+  "Founded the Free Software Foundation",
+  "Sometimes appears as Saint IGNUcius of the Church of Emacs",
+]
+
+[[person]]
+id = "tanenbaum"
+name = "Andrew S. Tanenbaum"
+born = 1944
+country = "USA / Netherlands"
+wikipedia = "Andrew_S._Tanenbaum"
+category = "unix"
+creations = [
+  { name = "MINIX", year = 1987, kind = "os" },
+  { name = "Operating Systems: Design and Implementation", year = 1987, kind = "book" },
+]
+clues = [
+  "Professor at the Vrije Universiteit Amsterdam",
+  "Told a Finnish student in 1992 that 'Linux is obsolete'",
+  "His teaching OS ended up inside Intel's Management Engine",
+]
+
+[[person]]
+id = "torvalds"
+name = "Linus Torvalds"
+born = 1969
+country = "Finland"
+wikipedia = "Linus_Torvalds"
+category = "unix"
+creations = [
+  { name = "Linux kernel", year = 1991, kind = "os" },
+  { name = "Git", year = 2005, kind = "tool" },
+]
+clues = [
+  "Studied at the University of Helsinki",
+  "Announced a 'just a hobby, won't be big and professional' project",
+  "Wrote a version control system in about ten days after losing BitKeeper",
+]
+
+# ─── Language creators ────────────────────────────────────────────────
+
+[[person]]
+id = "stroustrup"
+name = "Bjarne Stroustrup"
+born = 1950
+country = "Denmark"
+wikipedia = "Bjarne_Stroustrup"
+category = "languages"
+creations = [
+  { name = "C++", year = 1985, kind = "language" },
+]
+clues = [
+  "Danish computer scientist who worked at Bell Labs",
+  "His language started life as 'C with Classes'",
+  "Its name is an increment joke",
+]
+
+[[person]]
+id = "van-rossum"
+name = "Guido van Rossum"
+born = 1956
+country = "Netherlands"
+wikipedia = "Guido_van_Rossum"
+category = "languages"
+creations = [
+  { name = "Python", year = 1991, kind = "language" },
+]
+clues = [
+  "Started his language over a Christmas holiday at CWI Amsterdam",
+  "Held the title 'Benevolent Dictator For Life' until 2018",
+  "Named his language after a British comedy troupe",
+]
+
+[[person]]
+id = "gosling"
+name = "James Gosling"
+born = 1955
+country = "Canada"
+wikipedia = "James_Gosling"
+category = "languages"
+creations = [
+  { name = "Java", year = 1995, kind = "language" },
+]
+clues = [
+  "Wrote an early Unix version of Emacs",
+  "His language was first called Oak, after a tree outside his office",
+  "Write once, run anywhere",
+]
+
+[[person]]
+id = "eich"
+name = "Brendan Eich"
+born = 1961
+country = "USA"
+wikipedia = "Brendan_Eich"
+category = "languages"
+creations = [
+  { name = "JavaScript", year = 1995, kind = "language" },
+]
+clues = [
+  "Co-founded Mozilla, later founded Brave",
+  "Wrote a language prototype in about ten days at Netscape",
+  "His language was briefly called Mocha, then LiveScript",
+]
+
+[[person]]
+id = "wall"
+name = "Larry Wall"
+born = 1954
+country = "USA"
+wikipedia = "Larry_Wall"
+category = "languages"
+creations = [
+  { name = "Perl", year = 1987, kind = "language" },
+  { name = "patch", year = 1985, kind = "tool" },
+]
+clues = [
+  "Trained as a linguist",
+  "Named laziness, impatience and hubris as the three virtues of a programmer",
+  "There's more than one way to do it",
+]
+
+[[person]]
+id = "matsumoto"
+name = "Yukihiro Matsumoto"
+born = 1965
+country = "Japan"
+wikipedia = "Yukihiro_Matsumoto"
+category = "languages"
+creations = [
+  { name = "Ruby", year = 1995, kind = "language" },
+]
+clues = [
+  "Known simply as 'Matz'",
+  "Designed his language around programmer happiness",
+  "Named it after a birthstone, as a nod to Perl (pearl)",
+]
+
+[[person]]
+id = "lerdorf"
+name = "Rasmus Lerdorf"
+born = 1968
+country = "Denmark / Canada"
+wikipedia = "Rasmus_Lerdorf"
+category = "languages"
+creations = [
+  { name = "PHP", year = 1995, kind = "language" },
+]
+clues = [
+  "Born in Greenland",
+  "Wrote some CGI scripts to track visits to his online CV",
+  "His language originally stood for 'Personal Home Page'",
+]
+
+[[person]]
+id = "hejlsberg"
+name = "Anders Hejlsberg"
+born = 1960
+country = "Denmark"
+wikipedia = "Anders_Hejlsberg"
+category = "languages"
+creations = [
+  { name = "Turbo Pascal", year = 1983, kind = "software" },
+  { name = "Delphi", year = 1995, kind = "software" },
+  { name = "C#", year = 2000, kind = "language" },
+  { name = "TypeScript", year = 2012, kind = "language" },
+]
+clues = [
+  "Worked at Borland before moving to Microsoft",
+  "Led the design of the main .NET language",
+  "Added static types on top of the web's language",
+]
+
+[[person]]
+id = "graydon-hoare"
+name = "Graydon Hoare"
+country = "Canada"
+wikipedia = "Graydon_Hoare"
+category = "languages"
+creations = [
+  { name = "Rust", year = 2006, kind = "language" },
+]
+clues = [
+  "Started a personal language project while at Mozilla",
+  "Reportedly inspired by a broken lift in his apartment building",
+  "Named his language after a hardy fungus",
+]
+
+[[person]]
+id = "lattner"
+name = "Chris Lattner"
+born = 1978
+country = "USA"
+wikipedia = "Chris_Lattner"
+category = "languages"
+creations = [
+  { name = "LLVM", year = 2003, kind = "software" },
+  { name = "Swift", year = 2014, kind = "language" },
+  { name = "Mojo", year = 2023, kind = "language" },
+]
+clues = [
+  "Started a compiler infrastructure as a grad student at Illinois",
+  "Built Apple's replacement for Objective-C",
+  "Later created a Python superset for AI hardware",
+]
+
+[[person]]
+id = "armstrong"
+name = "Joe Armstrong"
+born = 1950
+country = "UK / Sweden"
+wikipedia = "Joe_Armstrong_(programmer)"
+category = "languages"
+creations = [
+  { name = "Erlang", year = 1986, kind = "language" },
+]
+clues = [
+  "Worked at Ericsson's Computer Science Laboratory in Stockholm",
+  "Championed the 'let it crash' philosophy",
+  "His language was built for telephone switches",
+]
+
+[[person]]
+id = "peyton-jones"
+name = "Simon Peyton Jones"
+born = 1958
+country = "UK"
+wikipedia = "Simon_Peyton_Jones"
+category = "languages"
+creations = [
+  { name = "Haskell", year = 1990, kind = "language" },
+  { name = "Glasgow Haskell Compiler", kind = "software" },
+]
+clues = [
+  "Long-time researcher at Microsoft Research Cambridge",
+  "Champions computing education in UK schools",
+  "Key designer of a lazy, purely functional language",
+]
+
+[[person]]
+id = "ierusalimschy"
+name = "Roberto Ierusalimschy"
+born = 1960
+country = "Brazil"
+wikipedia = "Roberto_Ierusalimschy"
+category = "languages"
+creations = [
+  { name = "Lua", year = 1993, kind = "language" },
+]
+clues = [
+  "Professor at PUC-Rio",
+  "Wrote the book 'Programming in ...' for his own language",
+  "His language means 'moon' in Portuguese",
+]
+
+[[person]]
+id = "odersky"
+name = "Martin Odersky"
+born = 1958
+country = "Germany"
+wikipedia = "Martin_Odersky"
+category = "languages"
+creations = [
+  { name = "Scala", year = 2004, kind = "language" },
+]
+clues = [
+  "Professor at EPFL in Lausanne",
+  "Wrote the generics design and compiler that became javac in Java 5",
+  "His language name is Italian for 'staircase'",
+]
+
+[[person]]
+id = "hickey"
+name = "Rich Hickey"
+country = "USA"
+wikipedia = "Rich_Hickey"
+category = "languages"
+creations = [
+  { name = "Clojure", year = 2007, kind = "language" },
+]
+clues = [
+  "Took a long self-funded sabbatical to write his language",
+  "Gave the talk 'Simple Made Easy'",
+  "Created a Lisp for the JVM",
+]
+
+[[person]]
+id = "valim"
+name = "José Valim"
+country = "Brazil"
+wikipedia = "José_Valim"
+category = "languages"
+creations = [
+  { name = "Elixir", year = 2012, kind = "language" },
+]
+clues = [
+  "Former Ruby on Rails core team member",
+  "Co-founded Plataformatec",
+  "Built a language on the Erlang VM",
+]
+
+[[person]]
+id = "kelley"
+name = "Andrew Kelley"
+country = "USA"
+category = "languages"
+creations = [
+  { name = "Zig", year = 2016, kind = "language" },
+]
+clues = [
+  "President of a non-profit foundation for his language",
+  "No hidden control flow, no hidden allocations",
+  "His language's compiler doubles as a C/C++ cross-compiler",
+]
+
+[[person]]
+id = "ichbiah"
+name = "Jean Ichbiah"
+born = 1940
+country = "France"
+wikipedia = "Jean_Ichbiah"
+category = "languages"
+creations = [
+  { name = "Ada", year = 1980, kind = "language" },
+]
+clues = [
+  "Worked at CII Honeywell Bull in France",
+  "Won a US Department of Defense language design competition",
+  "Named his language after a 19th-century countess",
+]
+
+[[person]]
+id = "colmerauer"
+name = "Alain Colmerauer"
+born = 1941
+country = "France"
+wikipedia = "Alain_Colmerauer"
+category = "languages"
+creations = [
+  { name = "Prolog", year = 1972, kind = "language" },
+]
+clues = [
+  "Professor in Marseille",
+  "Started from natural-language processing research",
+  "Created a language of facts, rules and queries",
+]
+
+[[person]]
+id = "leroy"
+name = "Xavier Leroy"
+born = 1968
+country = "France"
+wikipedia = "Xavier_Leroy"
+category = "languages"
+creations = [
+  { name = "OCaml", year = 1996, kind = "language" },
+  { name = "CompCert", kind = "software" },
+]
+clues = [
+  "Researcher at Inria, later professor at the Collège de France",
+  "Built a formally verified C compiler",
+  "Lead developer of the main ML dialect with objects",
+]
+
+[[person]]
+id = "meyer"
+name = "Bertrand Meyer"
+born = 1950
+country = "France"
+wikipedia = "Bertrand_Meyer"
+category = "languages"
+creations = [
+  { name = "Eiffel", year = 1986, kind = "language" },
+  { name = "Design by contract", kind = "concept" },
+]
+clues = [
+  "Wrote 'Object-Oriented Software Construction'",
+  "Coined the open–closed principle",
+  "Named his language after the engineer of a Paris landmark",
+]
+
+# ─── Distros & operating systems ──────────────────────────────────────
+
+[[person]]
+id = "volkerding"
+name = "Patrick Volkerding"
+born = 1966
+country = "USA"
+wikipedia = "Patrick_Volkerding"
+category = "distros"
+creations = [
+  { name = "Slackware", year = 1993, kind = "distro" },
+]
+clues = [
+  "Known as 'The Man' to his users",
+  "Big fan of the Church of the SubGenius",
+  "Maintains the oldest Linux distribution still in development",
+]
+
+[[person]]
+id = "murdock"
+name = "Ian Murdock"
+born = 1973
+country = "USA"
+wikipedia = "Ian_Murdock"
+category = "distros"
+creations = [
+  { name = "Debian", year = 1993, kind = "distro" },
+]
+clues = [
+  "Started his distro as a student at Purdue",
+  "Wrote a manifesto for a distribution developed openly",
+  "Named it after his girlfriend Debra and himself",
+]
+
+[[person]]
+id = "ewing"
+name = "Marc Ewing"
+country = "USA"
+wikipedia = "Marc_Ewing"
+category = "distros"
+creations = [
+  { name = "Red Hat Linux", kind = "distro" },
+]
+clues = [
+  "Teamed up with Bob Young to found a company",
+  "Wore his grandfather's Cornell lacrosse cap at Carnegie Mellon",
+  "The company is named after that hat",
+]
+
+[[person]]
+id = "vinet"
+name = "Judd Vinet"
+country = "Canada"
+category = "distros"
+creations = [
+  { name = "Arch Linux", year = 2002, kind = "distro" },
+  { name = "pacman", year = 2002, kind = "tool" },
+]
+clues = [
+  "Canadian programmer inspired by CRUX",
+  "Wrote his distro's package manager himself",
+  "His distro's motto is 'Keep it simple'",
+]
+
+[[person]]
+id = "griffin"
+name = "Aaron Griffin"
+country = "USA"
+category = "distros"
+creations = [
+  { name = "Arch Linux project leadership", year = 2007, kind = "distro" },
+]
+clues = [
+  "Took over a rolling-release distro in 2007",
+  "Led it for over a decade before handing over in 2020",
+  "Handed leadership to Levente Polyak",
+]
+
+[[person]]
+id = "robbins"
+name = "Daniel Robbins"
+country = "USA"
+wikipedia = "Daniel_Robbins_(computer_programmer)"
+category = "distros"
+creations = [
+  { name = "Gentoo Linux", year = 2002, kind = "distro" },
+  { name = "Portage", kind = "tool" },
+  { name = "Funtoo", kind = "distro" },
+]
+clues = [
+  "Earlier founded a distro called Enoch",
+  "Built a source-based package manager inspired by BSD ports",
+  "His distro is named after a fast-swimming penguin",
+]
+
+[[person]]
+id = "shuttleworth"
+name = "Mark Shuttleworth"
+born = 1973
+country = "South Africa / UK"
+wikipedia = "Mark_Shuttleworth"
+category = "distros"
+creations = [
+  { name = "Ubuntu", year = 2004, kind = "distro" },
+  { name = "Thawte", year = 1995, kind = "software" },
+]
+clues = [
+  "Made his fortune selling a certificate authority to VeriSign",
+  "Went to the International Space Station in 2002",
+  "Calls himself the 'Self-Appointed Benevolent Dictator for Life' of his distro",
+]
+
+[[person]]
+id = "beekmans"
+name = "Gerard Beekmans"
+category = "distros"
+creations = [
+  { name = "Linux From Scratch", year = 1999, kind = "book" },
+]
+clues = [
+  "Wrote down every step he used to build his own system",
+  "His project is a book, not a distro",
+  "Has a sequel: Beyond ...",
+]
+
+[[person]]
+id = "dolstra"
+name = "Eelco Dolstra"
+country = "Netherlands"
+category = "distros"
+creations = [
+  { name = "Nix", year = 2003, kind = "tool" },
+  { name = "NixOS", kind = "distro" },
+]
+clues = [
+  "Started his project as PhD research at Utrecht University",
+  "Builds packages as pure functions of their inputs",
+  "Store paths start with a hash",
+]
+
+[[person]]
+id = "pardines"
+name = "Juan Romero Pardines"
+country = "Spain"
+category = "distros"
+creations = [
+  { name = "Void Linux", year = 2008, kind = "distro" },
+  { name = "XBPS", kind = "tool" },
+]
+clues = [
+  "Former NetBSD developer",
+  "His distro uses runit instead of systemd",
+  "Wrote the X Binary Package System",
+]
+
+[[person]]
+id = "de-raadt"
+name = "Theo de Raadt"
+born = 1968
+country = "Canada"
+wikipedia = "Theo_de_Raadt"
+category = "distros"
+creations = [
+  { name = "OpenBSD", year = 1995, kind = "os" },
+  { name = "OpenSSH", year = 1999, kind = "tool" },
+]
+clues = [
+  "Lives in Calgary",
+  "Co-founded NetBSD, then forked it",
+  "Leads the OS with 'only two remote holes in the default install'",
+]
+
+[[person]]
+id = "jolitz"
+name = "Bill and Lynne Jolitz"
+country = "USA"
+category = "distros"
+creations = [
+  { name = "386BSD", year = 1992, kind = "os" },
+]
+clues = [
+  "A married couple of programmers",
+  "Documented their port in a series of Dr. Dobb's Journal articles",
+  "Ported BSD to the Intel 80386",
+]
+
+[[person]]
+id = "paterson"
+name = "Tim Paterson"
+born = 1956
+country = "USA"
+wikipedia = "Tim_Paterson"
+category = "distros"
+creations = [
+  { name = "86-DOS", year = 1980, kind = "os" },
+]
+clues = [
+  "Worked at Seattle Computer Products",
+  "His OS was nicknamed QDOS, the 'Quick and Dirty Operating System'",
+  "Microsoft bought it and it became MS-DOS",
+]
+
+# ─── CLI, tools & infrastructure ──────────────────────────────────────
+
+[[person]]
+id = "stenberg"
+name = "Daniel Stenberg"
+born = 1970
+country = "Sweden"
+wikipedia = "Daniel_Stenberg"
+category = "tools"
+creations = [
+  { name = "curl", year = 1998, kind = "tool" },
+]
+clues = [
+  "Lives near Stockholm",
+  "His project started as httpget, to fetch currency exchange rates for an IRC bot",
+  "His tool is installed on billions of devices, including cars and Mars helicopters",
+]
+
+[[person]]
+id = "moolenaar"
+name = "Bram Moolenaar"
+born = 1961
+country = "Netherlands"
+wikipedia = "Bram_Moolenaar"
+category = "tools"
+creations = [
+  { name = "Vim", year = 1991, kind = "tool" },
+]
+clues = [
+  "Volunteered in Uganda and asked users to donate to children there",
+  "First released his editor on the Amiga",
+  "His editor's name originally meant 'Vi IMitation'",
+]
+
+[[person]]
+id = "arruda"
+name = "Thiago de Arruda"
+country = "Brazil"
+category = "tools"
+creations = [
+  { name = "Neovim", year = 2014, kind = "tool" },
+]
+clues = [
+  "Brazilian developer",
+  "Funded his fork through a Bountysource campaign",
+  "Forked a classic editor to add async plugins and Lua",
+]
+
+[[person]]
+id = "fox"
+name = "Brian Fox"
+born = 1959
+country = "USA"
+wikipedia = "Brian_Fox_(programmer)"
+category = "tools"
+creations = [
+  { name = "Bash", year = 1989, kind = "tool" },
+  { name = "GNU Readline", kind = "software" },
+]
+clues = [
+  "First employee of the Free Software Foundation",
+  "Also wrote the GNU info documentation system",
+  "His shell's name is a pun on 'born again'",
+]
+
+[[person]]
+id = "vixie"
+name = "Paul Vixie"
+born = 1963
+country = "USA"
+wikipedia = "Paul_Vixie"
+category = "tools"
+creations = [
+  { name = "Vixie cron", year = 1987, kind = "tool" },
+  { name = "BIND", kind = "software" },
+]
+clues = [
+  "Founded the Internet Systems Consortium",
+  "Long-time maintainer of the most used DNS server",
+  "The time-based job scheduler on most Linux systems carries his name",
+]
+
+[[person]]
+id = "ylonen"
+name = "Tatu Ylönen"
+born = 1968
+country = "Finland"
+wikipedia = "Tatu_Ylönen"
+category = "tools"
+creations = [
+  { name = "SSH", year = 1995, kind = "protocol" },
+]
+clues = [
+  "Researcher at Helsinki University of Technology",
+  "Reacted to a password-sniffing attack on his university network",
+  "Asked IANA for port 22, between telnet and FTP",
+]
+
+[[person]]
+id = "tridgell"
+name = "Andrew Tridgell"
+born = 1967
+country = "Australia"
+wikipedia = "Andrew_Tridgell"
+category = "tools"
+creations = [
+  { name = "Samba", year = 1992, kind = "software" },
+  { name = "rsync", year = 1996, kind = "tool" },
+]
+clues = [
+  "Also a lead developer of ArduPilot",
+  "His reverse-engineering of BitKeeper indirectly led to Git",
+  "Invented a rolling-checksum delta transfer algorithm",
+]
+
+[[person]]
+id = "bellard"
+name = "Fabrice Bellard"
+born = 1972
+country = "France"
+wikipedia = "Fabrice_Bellard"
+category = "tools"
+creations = [
+  { name = "FFmpeg", year = 2000, kind = "tool" },
+  { name = "QEMU", year = 2003, kind = "software" },
+  { name = "Tiny C Compiler", kind = "software" },
+  { name = "QuickJS", year = 2019, kind = "software" },
+]
+clues = [
+  "Set a world record computing digits of π on a desktop PC",
+  "Ran Linux inside a browser with a JavaScript PC emulator",
+  "Started both the main multimedia toolkit and a widely used machine emulator",
+]
+
+[[person]]
+id = "gailly-adler"
+name = "Jean-loup Gailly and Mark Adler"
+category = "tools"
+creations = [
+  { name = "gzip", year = 1992, kind = "tool" },
+  { name = "zlib", year = 1995, kind = "software" },
+]
+clues = [
+  "A French and an American programmer",
+  "One of them also worked on the Mars Exploration Rovers",
+  "Wrote a free replacement for compress that avoided LZW patents",
+]
+
+[[person]]
+id = "katz"
+name = "Phil Katz"
+born = 1962
+country = "USA"
+wikipedia = "Phil_Katz"
+category = "tools"
+creations = [
+  { name = "PKZIP", year = 1989, kind = "tool" },
+  { name = "ZIP format", year = 1989, kind = "format" },
+]
+clues = [
+  "Ran a company from Milwaukee",
+  "Was sued over his ARC-compatible archiver",
+  "His initials prefix the most famous archiver of the DOS era",
+]
+
+[[person]]
+id = "pavlov"
+name = "Igor Pavlov"
+born = 1966
+country = "Russia"
+wikipedia = "Igor_Pavlov_(programmer)"
+category = "tools"
+creations = [
+  { name = "7-Zip", year = 1999, kind = "tool" },
+  { name = "LZMA", kind = "algorithm" },
+]
+clues = [
+  "Russian programmer who works largely alone",
+  "Created the compression algorithm behind .xz files",
+  "His archiver's native format is .7z",
+]
+
+[[person]]
+id = "sysoev"
+name = "Igor Sysoev"
+born = 1970
+country = "Russia"
+wikipedia = "Igor_Sysoev"
+category = "tools"
+creations = [
+  { name = "nginx", year = 2004, kind = "software" },
+]
+clues = [
+  "Was a system administrator at Rambler",
+  "Wrote his server to solve the C10K problem",
+  "Its name is pronounced 'engine-x'",
+]
+
+[[person]]
+id = "hamano"
+name = "Junio Hamano"
+country = "Japan"
+wikipedia = "Junio_Hamano"
+category = "tools"
+creations = [
+  { name = "Git maintainership", year = 2005, kind = "tool" },
+]
+clues = [
+  "Japanese software engineer at Google",
+  "Took over a version control project months after it started",
+  "Has maintained Git since July 2005",
+]
+
+[[person]]
+id = "marriott"
+name = "Nicholas Marriott"
+country = "UK"
+category = "tools"
+creations = [
+  { name = "tmux", year = 2007, kind = "tool" },
+]
+clues = [
+  "OpenBSD developer",
+  "His tool is now part of the OpenBSD base system",
+  "Wrote a BSD-licensed alternative to GNU screen",
+]
+
+[[person]]
+id = "poettering"
+name = "Lennart Poettering"
+born = 1980
+country = "Germany"
+wikipedia = "Lennart_Poettering"
+category = "tools"
+creations = [
+  { name = "systemd", year = 2010, kind = "software" },
+  { name = "PulseAudio", year = 2004, kind = "software" },
+  { name = "Avahi", kind = "software" },
+]
+clues = [
+  "Longtime Red Hat engineer",
+  "Wrote a sound server, then an mDNS stack",
+  "His init system is PID 1 on most Linux distros",
+]
+
+[[person]]
+id = "lyon"
+name = "Gordon \"Fyodor\" Lyon"
+country = "USA"
+wikipedia = "Gordon_Lyon"
+category = "tools"
+creations = [
+  { name = "nmap", year = 1997, kind = "tool" },
+]
+clues = [
+  "Known by a handle borrowed from Dostoevsky",
+  "First released his tool in Phrack magazine",
+  "His port scanner appears in The Matrix Reloaded",
+]
+
+[[person]]
+id = "combs"
+name = "Gerald Combs"
+country = "USA"
+category = "tools"
+creations = [
+  { name = "Wireshark", year = 1998, kind = "tool" },
+]
+clues = [
+  "Wrote his tool while working at a small ISP in Missouri",
+  "Its first name was Ethereal",
+  "Renamed his packet analyser in 2006 over trademark issues",
+]
+
+[[person]]
+id = "gallant"
+name = "Andrew Gallant"
+country = "USA"
+category = "tools"
+creations = [
+  { name = "ripgrep", year = 2016, kind = "tool" },
+]
+clues = [
+  "Better known online as BurntSushi",
+  "Maintains Rust's regex crate",
+  "His search tool's binary is called rg",
+]
+
+[[person]]
+id = "hipp"
+name = "D. Richard Hipp"
+born = 1961
+country = "USA"
+wikipedia = "D._Richard_Hipp"
+category = "tools"
+creations = [
+  { name = "SQLite", year = 2000, kind = "software" },
+  { name = "Fossil", kind = "tool" },
+]
+clues = [
+  "Started his database while contracting for a US Navy destroyer",
+  "His source code has a blessing instead of a licence",
+  "Created the most widely deployed database engine",
+]
+
+[[person]]
+id = "stonebraker"
+name = "Michael Stonebraker"
+born = 1943
+country = "USA"
+wikipedia = "Michael_Stonebraker"
+category = "tools"
+creations = [
+  { name = "Ingres", kind = "software" },
+  { name = "Postgres", year = 1986, kind = "software" },
+]
+clues = [
+  "Berkeley professor who later moved to MIT",
+  "Won the 2014 Turing Award",
+  "His second database was named 'after Ingres'",
+]
+
+[[person]]
+id = "widenius"
+name = "Michael Widenius"
+born = 1962
+country = "Finland"
+wikipedia = "Michael_Widenius"
+category = "tools"
+creations = [
+  { name = "MySQL", year = 1995, kind = "software" },
+  { name = "MariaDB", year = 2009, kind = "software" },
+]
+clues = [
+  "Known as 'Monty'",
+  "Forked his own database after Oracle bought it",
+  "Named both of his databases after his daughters",
+]
+
+[[person]]
+id = "sanfilippo"
+name = "Salvatore Sanfilippo"
+born = 1977
+country = "Italy"
+wikipedia = "Salvatore_Sanfilippo"
+category = "tools"
+creations = [
+  { name = "Redis", year = 2009, kind = "software" },
+  { name = "hping", kind = "tool" },
+]
+clues = [
+  "Better known as antirez",
+  "Invented the idle scan port-scanning technique",
+  "Built an in-memory key-value store from Sicily",
+]
+
+[[person]]
+id = "hykes"
+name = "Solomon Hykes"
+wikipedia = "Solomon_Hykes"
+category = "tools"
+creations = [
+  { name = "Docker", year = 2013, kind = "software" },
+]
+clues = [
+  "Founded dotCloud, a platform-as-a-service company",
+  "Revealed his project in a five-minute lightning talk at PyCon",
+  "His tool's logo is a whale carrying shipping containers",
+]
+
+[[person]]
+id = "vaxry"
+name = "Vaxry"
+category = "tools"
+creations = [
+  { name = "Hyprland", year = 2022, kind = "software" },
+]
+clues = [
+  "Their project began as a wlroots-based Wayland compositor",
+  "Known for smooth animations and rounded corners out of the box",
+  "Their compositor's config file is full of bezier curve definitions",
+]

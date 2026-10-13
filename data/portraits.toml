@@ -29,6 +29,14 @@ license = "Public domain"
 source_url = "https://commons.wikimedia.org/wiki/File:Alan_turing_header.jpg"
 
 [[portrait]]
+id = "church"
+file = "church.jpg"
+artist = "Unknown author"
+license = "Fair use"
+source_url = "https://en.wikipedia.org/wiki/File:Alonzo_Church.jpg"
+non_free = true
+
+[[portrait]]
 id = "von-neumann"
 file = "von-neumann.gif"
 artist = "LANL"
@@ -135,6 +143,14 @@ file = "lamport.jpg"
 artist = "Leslie Lamport"
 license = "Copyrighted free use"
 source_url = "https://commons.wikimedia.org/wiki/File:Leslie_Lamport.jpg"
+
+[[portrait]]
+id = "codd"
+file = "codd.jpg"
+artist = "Unknown author"
+license = "Fair use"
+source_url = "https://en.wikipedia.org/wiki/File:Edgar_F_Codd.jpg"
+non_free = true
 
 [[portrait]]
 id = "cook"
@@ -385,6 +401,14 @@ license_url = "https://creativecommons.org/licenses/by/2.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Anders_Hejlsberg.jpg"
 
 [[portrait]]
+id = "graydon-hoare"
+file = "graydon-hoare.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = ""
+non_free = true
+
+[[portrait]]
 id = "lattner"
 file = "lattner.jpg"
 artist = "Waldyrious"
@@ -431,6 +455,22 @@ artist = "Tapestry Dude"
 license = "CC BY-SA 2.0"
 license_url = "https://creativecommons.org/licenses/by-sa/2.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Rich_Hickey.jpg"
+
+[[portrait]]
+id = "valim"
+file = "valim.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://github.com/josevalim"
+non_free = true
+
+[[portrait]]
+id = "kelley"
+file = "kelley.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = ""
+non_free = true
 
 [[portrait]]
 id = "ichbiah"
@@ -480,6 +520,38 @@ license_url = "https://creativecommons.org/licenses/by-sa/2.0"
 source_url = "https://commons.wikimedia.org/wiki/File:IanMurdock_(cropped).jpg"
 
 [[portrait]]
+id = "ewing"
+file = "ewing.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://2.bp.blogspot.com/-DygnFjXTZf4/VU0cAUK-1SI/AAAAAAAAh2k/bbxVnQ39_e4/s1600/05-09%2BEfemerides%2Bde%2BTecnologia%2BMarc%2BEwing.jpg"
+non_free = true
+
+[[portrait]]
+id = "vinet"
+file = "vinet.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://usesthis.com/interviews/judd.vinet/"
+non_free = true
+
+[[portrait]]
+id = "griffin"
+file = "griffin.png"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://www.abclinuxu.cz/images/screenshots/0/5/121650-aaron-griffin-mini-14329.png"
+non_free = true
+
+[[portrait]]
+id = "robbins"
+file = "robbins.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://github.com/danielrobbins"
+non_free = true
+
+[[portrait]]
 id = "shuttleworth"
 file = "shuttleworth.jpg"
 artist = "Jonnymccullagh"
@@ -488,12 +560,36 @@ license_url = "https://creativecommons.org/licenses/by-sa/3.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Markshuttleworth-dublin-20101116.jpg"
 
 [[portrait]]
+id = "beekmans"
+file = "beekmans.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://tse1.mm.bing.net/th/id/OIP.K8kIL46g95IJk-fvw2uuxwHaHa"
+non_free = true
+
+[[portrait]]
+id = "dolstra"
+file = "dolstra.webp"
+artist = "Determinate Systems"
+license = "Unknown (all rights reserved)"
+source_url = "https://determinate.systems/"
+non_free = true
+
+[[portrait]]
 id = "de-raadt"
 file = "de-raadt.jpg"
 artist = "FAndrey"
 license = "CC BY 2.0"
 license_url = "https://creativecommons.org/licenses/by/2.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Theo_de_Raadt_2013.jpg"
+
+[[portrait]]
+id = "paterson"
+file = "paterson.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://msdos.club/wp-content/uploads/2020/10/tim_paterson.jpg"
+non_free = true
 
 [[portrait]]
 id = "stenberg"
@@ -512,6 +608,14 @@ license_url = "https://creativecommons.org/licenses/by-sa/2.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Bram_Moolenaar_in_2007.jpg"
 
 [[portrait]]
+id = "arruda"
+file = "arruda.png"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://github.com/tarruda"
+non_free = true
+
+[[portrait]]
 id = "fox"
 file = "fox.png"
 artist = "Lissa Liggett"
@@ -528,12 +632,36 @@ license_url = "https://creativecommons.org/licenses/by/3.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Paul_Vixie_-_2014.jpg"
 
 [[portrait]]
+id = "ylonen"
+file = "ylonen.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://substack-post-media.s3.amazonaws.com/public/images/dc554b63-cac7-4ebd-8e3a-08e58bcb5590_1200x640.webp"
+non_free = true
+
+[[portrait]]
 id = "tridgell"
 file = "tridgell.jpg"
 artist = "Singa Kuttty sivasakthi from Bangalore, India"
 license = "CC BY 2.0"
 license_url = "https://creativecommons.org/licenses/by/2.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Andrew_Tridgell.jpg"
+
+[[portrait]]
+id = "bellard"
+file = "bellard.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://pbs.twimg.com/media/HBj8funWYAAZQv1.jpg"
+non_free = true
+
+[[portrait]]
+id = "katz"
+file = "katz.jpg"
+artist = "Unknown author"
+license = "Fair use"
+source_url = "https://en.wikipedia.org/wiki/File:Phil_Katz.jpg"
+non_free = true
 
 [[portrait]]
 id = "poettering"
@@ -550,6 +678,30 @@ artist = "Jacob Appelbaum"
 license = "CC BY-SA 2.0"
 license_url = "https://creativecommons.org/licenses/by-sa/2.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Fyodor_Hope6_Appelbaum_1100x1100.jpg"
+
+[[portrait]]
+id = "combs"
+file = "combs.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://x.com/geraldcombs/photo"
+non_free = true
+
+[[portrait]]
+id = "gallant"
+file = "gallant.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://github.com/BurntSushi"
+non_free = true
+
+[[portrait]]
+id = "hipp"
+file = "hipp.jpeg"
+artist = "Jeff Cornejo"
+license = "CC-BY-SA-3.0"
+license_url = "https://creativecommons.org/licenses/by-sa/3.0/"
+source_url = "https://en.wikipedia.org/wiki/File:Richard_hipp.jpeg"
 
 [[portrait]]
 id = "stonebraker"
@@ -574,3 +726,19 @@ artist = "dotconferences"
 license = "CC BY 3.0"
 license_url = "https://creativecommons.org/licenses/by/3.0"
 source_url = "https://commons.wikimedia.org/wiki/File:Salvatore_Sanfilippo.png"
+
+[[portrait]]
+id = "hykes"
+file = "hykes.jpg"
+artist = "TechCrunch"
+license = "CC BY 2.0"
+license_url = "https://creativecommons.org/licenses/by/2.0"
+source_url = "https://commons.wikimedia.org/wiki/File:518392245AG185_TechCrunch_D_-_Solomon_Hykes.jpg"
+
+[[portrait]]
+id = "vaxry"
+file = "vaxry.jpg"
+artist = "Unknown author"
+license = "Unknown (all rights reserved)"
+source_url = "https://avatars.githubusercontent.com/u/43317083?v=4"
+non_free = true

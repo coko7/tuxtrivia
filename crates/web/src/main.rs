@@ -496,7 +496,10 @@ fn credits_view(screen: RwSignal<Screen>) -> impl IntoView {
                     " — " {portrait.artist.clone()} ", "
                     {license_link(portrait.license.clone(), portrait.license_url.clone())}
                     ", via "
-                    <a href=portrait.source_url.clone() target="_blank" rel="noopener">"Wikimedia Commons"</a>
+                    <a href=portrait.source_url.clone() target="_blank" rel="noopener">
+                        {portrait.source_url.split('/').nth(2).unwrap_or("source").to_string()}
+                    </a>
+                    {portrait.non_free.then_some(" (non-free)")}
                 </li>
             }
         })

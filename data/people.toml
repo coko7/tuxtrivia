@@ -133,9 +133,7 @@ born = 1916
 country = "USA"
 wikipedia = "Claude_Shannon"
 category = "pioneers"
-creations = [
-  { name = "Information theory", year = 1948, kind = "concept" },
-]
+creations = [{ name = "Information theory", year = 1948, kind = "concept" }]
 clues = [
   "Built juggling machines and a maze-solving mechanical mouse",
   "His master's thesis showed Boolean algebra could design switching circuits",
@@ -303,9 +301,7 @@ born = 1932
 country = "USA"
 wikipedia = "Frances_Allen"
 category = "pioneers"
-creations = [
-  { name = "Control-flow analysis", kind = "concept" },
-]
+creations = [{ name = "Control-flow analysis", kind = "concept" }]
 clues = [
   "Spent her whole 45-year career at IBM",
   "Pioneered optimising compilers and automatic parallelisation",
@@ -357,9 +353,7 @@ born = 1923
 country = "UK"
 wikipedia = "Edgar_F._Codd"
 category = "pioneers"
-creations = [
-  { name = "Relational model", year = 1970, kind = "concept" },
-]
+creations = [{ name = "Relational model", year = 1970, kind = "concept" }]
 clues = [
   "RAF pilot in WWII who later worked at IBM",
   "Defined a set of normal forms for data",
@@ -406,9 +400,7 @@ born = 1938
 country = "USA"
 wikipedia = "Ivan_Sutherland"
 category = "pioneers"
-creations = [
-  { name = "Sketchpad", year = 1963, kind = "software" },
-]
+creations = [{ name = "Sketchpad", year = 1963, kind = "software" }]
 clues = [
   "Considered the father of computer graphics",
   "Built an early head-mounted display nicknamed the Sword of Damocles",
@@ -456,9 +448,7 @@ born = 1943
 country = "USA"
 wikipedia = "Vint_Cerf"
 category = "pioneers"
-creations = [
-  { name = "TCP/IP", year = 1974, kind = "protocol" },
-]
+creations = [{ name = "TCP/IP", year = 1974, kind = "protocol" }]
 clues = [
   "Later became Google's Chief Internet Evangelist",
   "Known for wearing three-piece suits",
@@ -472,9 +462,7 @@ born = 1938
 country = "USA"
 wikipedia = "Bob_Kahn"
 category = "pioneers"
-creations = [
-  { name = "TCP/IP", year = 1974, kind = "protocol" },
-]
+creations = [{ name = "TCP/IP", year = 1974, kind = "protocol" }]
 clues = [
   "Worked on ARPANET at BBN and DARPA",
   "Shared the 2004 Turing Award with his co-author",
@@ -684,9 +672,7 @@ born = 1944
 country = "UK"
 wikipedia = "Stephen_R._Bourne"
 category = "unix"
-creations = [
-  { name = "Bourne shell", year = 1979, kind = "tool" },
-]
+creations = [{ name = "Bourne shell", year = 1979, kind = "tool" }]
 clues = [
   "Wrote an ALGOL 68 compiler at Cambridge before joining Bell Labs",
   "His C code used macros to make it look like ALGOL",
@@ -773,9 +759,7 @@ born = 1950
 country = "Denmark"
 wikipedia = "Bjarne_Stroustrup"
 category = "languages"
-creations = [
-  { name = "C++", year = 1985, kind = "language" },
-]
+creations = [{ name = "C++", year = 1985, kind = "language" }]
 clues = [
   "Danish computer scientist who worked at Bell Labs",
   "His language started life as 'C with Classes'",
@@ -789,9 +773,7 @@ born = 1956
 country = "Netherlands"
 wikipedia = "Guido_van_Rossum"
 category = "languages"
-creations = [
-  { name = "Python", year = 1991, kind = "language" },
-]
+creations = [{ name = "Python", year = 1991, kind = "language" }]
 clues = [
   "Started his language over a Christmas holiday at CWI Amsterdam",
   "Held the title 'Benevolent Dictator For Life' until 2018",
@@ -805,9 +787,7 @@ born = 1955
 country = "Canada"
 wikipedia = "James_Gosling"
 category = "languages"
-creations = [
-  { name = "Java", year = 1995, kind = "language" },
-]
+creations = [{ name = "Java", year = 1995, kind = "language" }]
 clues = [
   "Wrote an early Unix version of Emacs",
   "His language was first called Oak, after a tree outside his office",
@@ -821,9 +801,7 @@ born = 1961
 country = "USA"
 wikipedia = "Brendan_Eich"
 category = "languages"
-creations = [
-  { name = "JavaScript", year = 1995, kind = "language" },
-]
+creations = [{ name = "JavaScript", year = 1995, kind = "language" }]
 clues = [
   "Co-founded Mozilla, later founded Brave",
   "Wrote a language prototype in about ten days at Netscape",
@@ -854,9 +832,7 @@ born = 1965
 country = "Japan"
 wikipedia = "Yukihiro_Matsumoto"
 category = "languages"
-creations = [
-  { name = "Ruby", year = 1995, kind = "language" },
-]
+creations = [{ name = "Ruby", year = 1995, kind = "language" }]
 clues = [
   "Known simply as 'Matz'",
   "Designed his language around programmer happiness",
@@ -870,9 +846,7 @@ born = 1968
 country = "Denmark / Canada"
 wikipedia = "Rasmus_Lerdorf"
 category = "languages"
-creations = [
-  { name = "PHP", year = 1995, kind = "language" },
-]
+creations = [{ name = "PHP", year = 1995, kind = "language" }]
 clues = [
   "Born in Greenland",
   "Wrote some CGI scripts to track visits to his online CV",
@@ -904,9 +878,7 @@ name = "Graydon Hoare"
 country = "Canada"
 wikipedia = "Graydon_Hoare"
 category = "languages"
-creations = [
-  { name = "Rust", year = 2006, kind = "language" },
-]
+creations = [{ name = "Rust", year = 2006, kind = "language" }]
 clues = [
   "Started a personal language project while at Mozilla",
   "Reportedly inspired by a broken lift in his apartment building",
@@ -938,9 +910,7 @@ born = 1950
 country = "UK / Sweden"
 wikipedia = "Joe_Armstrong_(programmer)"
 category = "languages"
-creations = [
-  { name = "Erlang", year = 1986, kind = "language" },
-]
+creations = [{ name = "Erlang", year = 1986, kind = "language" }]
 clues = [
   "Worked at Ericsson's Computer Science Laboratory in Stockholm",
   "Championed the 'let it crash' philosophy",
@@ -971,9 +941,7 @@ born = 1960
 country = "Brazil"
 wikipedia = "Roberto_Ierusalimschy"
 category = "languages"
-creations = [
-  { name = "Lua", year = 1993, kind = "language" },
-]
+creations = [{ name = "Lua", year = 1993, kind = "language" }]
 clues = [
   "Professor at PUC-Rio",
   "Wrote the book 'Programming in ...' for his own language",
@@ -987,9 +955,7 @@ born = 1958
 country = "Germany"
 wikipedia = "Martin_Odersky"
 category = "languages"
-creations = [
-  { name = "Scala", year = 2004, kind = "language" },
-]
+creations = [{ name = "Scala", year = 2004, kind = "language" }]
 clues = [
   "Professor at EPFL in Lausanne",
   "Wrote the generics design and compiler that became javac in Java 5",
@@ -1002,9 +968,7 @@ name = "Rich Hickey"
 country = "USA"
 wikipedia = "Rich_Hickey"
 category = "languages"
-creations = [
-  { name = "Clojure", year = 2007, kind = "language" },
-]
+creations = [{ name = "Clojure", year = 2007, kind = "language" }]
 clues = [
   "Took a long self-funded sabbatical to write his language",
   "Gave the talk 'Simple Made Easy'",
@@ -1017,9 +981,7 @@ name = "José Valim"
 country = "Brazil"
 wikipedia = "José_Valim"
 category = "languages"
-creations = [
-  { name = "Elixir", year = 2012, kind = "language" },
-]
+creations = [{ name = "Elixir", year = 2012, kind = "language" }]
 clues = [
   "Former Ruby on Rails core team member",
   "Co-founded Plataformatec",
@@ -1031,9 +993,7 @@ id = "kelley"
 name = "Andrew Kelley"
 country = "USA"
 category = "languages"
-creations = [
-  { name = "Zig", year = 2016, kind = "language" },
-]
+creations = [{ name = "Zig", year = 2016, kind = "language" }]
 clues = [
   "President of a non-profit foundation for his language",
   "No hidden control flow, no hidden allocations",
@@ -1047,9 +1007,7 @@ born = 1940
 country = "France"
 wikipedia = "Jean_Ichbiah"
 category = "languages"
-creations = [
-  { name = "Ada", year = 1980, kind = "language" },
-]
+creations = [{ name = "Ada", year = 1980, kind = "language" }]
 clues = [
   "Worked at CII Honeywell Bull in France",
   "Won a US Department of Defense language design competition",
@@ -1063,9 +1021,7 @@ born = 1941
 country = "France"
 wikipedia = "Alain_Colmerauer"
 category = "languages"
-creations = [
-  { name = "Prolog", year = 1972, kind = "language" },
-]
+creations = [{ name = "Prolog", year = 1972, kind = "language" }]
 clues = [
   "Professor in Marseille",
   "Started from natural-language processing research",
@@ -1115,9 +1071,7 @@ born = 1966
 country = "USA"
 wikipedia = "Patrick_Volkerding"
 category = "distros"
-creations = [
-  { name = "Slackware", year = 1993, kind = "distro" },
-]
+creations = [{ name = "Slackware", year = 1993, kind = "distro" }]
 clues = [
   "Known as 'The Man' to his users",
   "Big fan of the Church of the SubGenius",
@@ -1131,9 +1085,7 @@ born = 1973
 country = "USA"
 wikipedia = "Ian_Murdock"
 category = "distros"
-creations = [
-  { name = "Debian", year = 1993, kind = "distro" },
-]
+creations = [{ name = "Debian", year = 1993, kind = "distro" }]
 clues = [
   "Started his distro as a student at Purdue",
   "Wrote a manifesto for a distribution developed openly",
@@ -1146,9 +1098,7 @@ name = "Marc Ewing"
 country = "USA"
 wikipedia = "Marc_Ewing"
 category = "distros"
-creations = [
-  { name = "Red Hat Linux", kind = "distro" },
-]
+creations = [{ name = "Red Hat Linux", kind = "distro" }]
 clues = [
   "Teamed up with Bob Young to found a company",
   "Wore his grandfather's Cornell lacrosse cap at Carnegie Mellon",
@@ -1222,9 +1172,7 @@ clues = [
 id = "beekmans"
 name = "Gerard Beekmans"
 category = "distros"
-creations = [
-  { name = "Linux From Scratch", year = 1999, kind = "book" },
-]
+creations = [{ name = "Linux From Scratch", year = 1999, kind = "book" }]
 clues = [
   "Wrote down every step he used to build his own system",
   "His project is a book, not a distro",
@@ -1283,9 +1231,7 @@ id = "jolitz"
 name = "Bill and Lynne Jolitz"
 country = "USA"
 category = "distros"
-creations = [
-  { name = "386BSD", year = 1992, kind = "os" },
-]
+creations = [{ name = "386BSD", year = 1992, kind = "os" }]
 clues = [
   "A married couple of programmers",
   "Documented their port in a series of Dr. Dobb's Journal articles",
@@ -1299,9 +1245,7 @@ born = 1956
 country = "USA"
 wikipedia = "Tim_Paterson"
 category = "distros"
-creations = [
-  { name = "86-DOS", year = 1980, kind = "os" },
-]
+creations = [{ name = "86-DOS", year = 1980, kind = "os" }]
 clues = [
   "Worked at Seattle Computer Products",
   "His OS was nicknamed QDOS, the 'Quick and Dirty Operating System'",
@@ -1317,9 +1261,7 @@ born = 1970
 country = "Sweden"
 wikipedia = "Daniel_Stenberg"
 category = "tools"
-creations = [
-  { name = "curl", year = 1998, kind = "tool" },
-]
+creations = [{ name = "curl", year = 1998, kind = "tool" }]
 clues = [
   "Lives near Stockholm",
   "His project started as httpget, to fetch currency exchange rates for an IRC bot",
@@ -1333,9 +1275,7 @@ born = 1961
 country = "Netherlands"
 wikipedia = "Bram_Moolenaar"
 category = "tools"
-creations = [
-  { name = "Vim", year = 1991, kind = "tool" },
-]
+creations = [{ name = "Vim", year = 1991, kind = "tool" }]
 clues = [
   "Volunteered in Uganda and asked users to donate to children there",
   "First released his editor on the Amiga",
@@ -1347,9 +1287,7 @@ id = "arruda"
 name = "Thiago de Arruda"
 country = "Brazil"
 category = "tools"
-creations = [
-  { name = "Neovim", year = 2014, kind = "tool" },
-]
+creations = [{ name = "Neovim", year = 2014, kind = "tool" }]
 clues = [
   "Brazilian developer",
   "Funded his fork through a Bountysource campaign",
@@ -1397,9 +1335,7 @@ born = 1968
 country = "Finland"
 wikipedia = "Tatu_Ylönen"
 category = "tools"
-creations = [
-  { name = "SSH", year = 1995, kind = "protocol" },
-]
+creations = [{ name = "SSH", year = 1995, kind = "protocol" }]
 clues = [
   "Researcher at Helsinki University of Technology",
   "Reacted to a password-sniffing attack on his university network",
@@ -1497,9 +1433,7 @@ born = 1970
 country = "Russia"
 wikipedia = "Igor_Sysoev"
 category = "tools"
-creations = [
-  { name = "nginx", year = 2004, kind = "software" },
-]
+creations = [{ name = "nginx", year = 2004, kind = "software" }]
 clues = [
   "Was a system administrator at Rambler",
   "Wrote his server to solve the C10K problem",
@@ -1511,9 +1445,7 @@ id = "marriott"
 name = "Nicholas Marriott"
 country = "UK"
 category = "tools"
-creations = [
-  { name = "tmux", year = 2007, kind = "tool" },
-]
+creations = [{ name = "tmux", year = 2007, kind = "tool" }]
 clues = [
   "OpenBSD developer",
   "His tool is now part of the OpenBSD base system",
@@ -1544,9 +1476,7 @@ name = "Gordon \"Fyodor\" Lyon"
 country = "USA"
 wikipedia = "Gordon_Lyon"
 category = "tools"
-creations = [
-  { name = "nmap", year = 1997, kind = "tool" },
-]
+creations = [{ name = "nmap", year = 1997, kind = "tool" }]
 clues = [
   "Known by a handle borrowed from Dostoevsky",
   "First released his tool in Phrack magazine",
@@ -1558,9 +1488,7 @@ id = "combs"
 name = "Gerald Combs"
 country = "USA"
 category = "tools"
-creations = [
-  { name = "Wireshark", year = 1998, kind = "tool" },
-]
+creations = [{ name = "Wireshark", year = 1998, kind = "tool" }]
 clues = [
   "Wrote his tool while working at a small ISP in Missouri",
   "Its first name was Ethereal",
@@ -1572,9 +1500,7 @@ id = "gallant"
 name = "Andrew Gallant"
 country = "USA"
 category = "tools"
-creations = [
-  { name = "ripgrep", year = 2016, kind = "tool" },
-]
+creations = [{ name = "ripgrep", year = 2016, kind = "tool" }]
 clues = [
   "Better known online as BurntSushi",
   "Maintains Rust's regex crate",
@@ -1654,9 +1580,7 @@ id = "hykes"
 name = "Solomon Hykes"
 wikipedia = "Solomon_Hykes"
 category = "tools"
-creations = [
-  { name = "Docker", year = 2013, kind = "software" },
-]
+creations = [{ name = "Docker", year = 2013, kind = "software" }]
 clues = [
   "Founded dotCloud, a platform-as-a-service company",
   "Revealed his project in a five-minute lightning talk at PyCon",
@@ -1667,9 +1591,7 @@ clues = [
 id = "vaxry"
 name = "Vaxry"
 category = "tools"
-creations = [
-  { name = "Hyprland", year = 2022, kind = "software" },
-]
+creations = [{ name = "Hyprland", year = 2022, kind = "software" }]
 clues = [
   "Their project began as a wlroots-based Wayland compositor",
   "Known for smooth animations and rounded corners out of the box",

@@ -87,7 +87,8 @@ pub struct Person {
     pub clues: Vec<String>,
 }
 
-/// Attribution for a portrait downloaded from Wikimedia Commons.
+/// Attribution for a portrait downloaded from Wikimedia Commons (or, when
+/// `non_free`, from English Wikipedia).
 /// Written by the `tuxtrivia-portraits` tool, never by hand.
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
@@ -99,8 +100,12 @@ pub struct Portrait {
     pub license: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub license_url: Option<String>,
-    /// Commons file description page.
+    /// File description page, on Commons or on English Wikipedia.
     pub source_url: String,
+    /// Not freely licensed (e.g. fair use), so only hosted on English
+    /// Wikipedia. Fetched with `--allow-non-free`.
+    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+    pub non_free: bool,
 }
 
 #[derive(Deserialize)]

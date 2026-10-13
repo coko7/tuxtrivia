@@ -6,8 +6,11 @@
 //! crates/web/public/portraits/ and records author + licence in
 //! data/portraits.toml, which the game shows next to every portrait.
 //!
+//! With `--allow-non-free` it also takes non-free lead images (fair use,
+//! hosted only on English Wikipedia) and marks them `non_free = true`.
+//!
 //! Usage:
-//!   cargo run --package tuxtrivia-portraits -- [--force] [--only <id>]... [--size <px>]
+//!   cargo run --package tuxtrivia-portraits -- [--force] [--allow-non-free] [--only <id>]... [--size <px>]
 //!
 //! Wikimedia asks API clients to identify themselves; the User-Agent carries
 //! the repository URL, or TUXTRIVIA_CONTACT (a URL or email) when set.
@@ -39,6 +42,7 @@ fn thumb_step(px: u32) -> u32 {
 
 struct Args {
     force: bool,
+    allow_non_free: bool,
     only: Vec<String>,
     size: u32,
 }
@@ -46,6 +50,7 @@ struct Args {
 fn parse_args() -> Args {
     let mut args = Args {
         force: false,
+        allow_non_free: false,
         only: Vec::new(),
         size: 500,
     };
@@ -53,6 +58,7 @@ fn parse_args() -> Args {
     while let Some(arg) = it.next() {
         match arg.as_str() {
             "--force" => args.force = true,
+            "--allow-non-free" => args.allow_non_free = true,
             "--only" => args
                 .only
                 .push(it.next().unwrap_or_else(|| usage("--only needs an id"))),
@@ -73,11 +79,14 @@ fn usage(error: &str) -> ! {
     if !error.is_empty() {
         eprintln!("error: {error}\n");
     }
-    eprintln!("usage: tuxtrivia-portraits [--force] [--only <id>]... [--size <px>]");
-    eprintln!("  --force       re-download portraits that already exist");
-    eprintln!("  --only <id>   only fetch this person (repeatable)");
     eprintln!(
-        "  --size <px>   thumbnail width, rounded up to a Wikimedia standard size (default 500)"
+        "usage: tuxtrivia-portraits [--force] [--allow-non-free] [--only <id>]... [--size <px>]"
+    );
+    eprintln!("  --force           re-download portraits that already exist");
+    eprintln!("  --allow-non-free  also take non-free (fair use) images, marked `non_free`");
+    eprintln!("  --only <id>       only fetch this person (repeatable)");
+    eprintln!(
+        "  --size <px>       thumbnail width, rounded up to a Wikimedia standard size (default 500)"
     );
     process::exit(if error.is_empty() { 0 } else { 2 });
 }
@@ -122,11 +131,14 @@ fn main() {
             continue;
         }
 
-        match fetch(&agent, &user_agent, person, title, args.size, &image_dir) {
+        match fetch(&agent, &user_agent, person, title, &args, &image_dir) {
             Ok(Fetched::Found(portrait)) => {
                 println!(
-                    "✓ {:<22} {} — {}",
-                    person.id, portrait.license, portrait.artist
+                    "✓ {:<22} {}{} — {}",
+                    person.id,
+                    portrait.license,
+                    if portrait.non_free { " (NON-FREE)" } else { "" },
+                    portrait.artist
                 );
                 // A new extension leaves the old file behind.
                 if let Some(i) = existing
@@ -216,10 +228,13 @@ fn fetch(
     user_agent: &str,
     person: &Person,
     title: &str,
-    size: u32,
+    args: &Args,
     image_dir: &Path,
 ) -> Result<Fetched, String> {
-    // 1. The article's lead image, only if it is freely licensed.
+    let size = args.size;
+    let pilicense = if args.allow_non_free { "any" } else { "free" };
+    // 1. The article's lead image, only if it is freely licensed (unless
+    //    --allow-non-free).
     let page: Value = with_retry(|| {
         agent
             .get(WIKIPEDIA_API)
@@ -230,7 +245,7 @@ fn fetch(
             .query("redirects", "1")
             .query("prop", "pageimages")
             .query("piprop", "thumbnail|name")
-            .query("pilicense", "free")
+            .query("pilicense", pilicense)
             .query("pithumbsize", size.to_string())
             .query("titles", title)
             .call()
@@ -244,7 +259,7 @@ fn fetch(
         return none(format!("no Wikipedia article titled `{title}`"));
     }
     let Some(file) = page["pageimage"].as_str() else {
-        return none("article has no free lead image".into());
+        return none(format!("article has no {pilicense} lead image"));
     };
     // Articles without a photo often lead with a project logo, always SVG.
     if file.to_ascii_lowercase().ends_with(".svg") {
@@ -255,25 +270,40 @@ fn fetch(
     };
 
     // 2. Authorship and licence from Commons. Files missing there are local
-    //    to English Wikipedia, which usually means non-free: skip them.
-    let info: Value = with_retry(|| {
-        agent
-            .get(COMMONS_API)
-            .header("User-Agent", user_agent)
-            .query("action", "query")
-            .query("format", "json")
-            .query("formatversion", "2")
-            .query("prop", "imageinfo")
-            .query("iiprop", "extmetadata|url")
-            .query("titles", format!("File:{file}"))
-            .call()
-            .and_then(|mut r| r.body_mut().read_json())
-    })
-    .map_err(|e| format!("Commons request failed: {e}"))?;
-
-    let file_page = &info["query"]["pages"][0];
-    if file_page["missing"].as_bool() == Some(true) {
-        return none(format!("`{file}` is not on Commons (likely non-free)"));
+    //    to English Wikipedia, which usually means non-free: skip them,
+    //    unless --allow-non-free, then read their English Wikipedia page.
+    let image_info = |api: &str| {
+        with_retry(|| {
+            agent
+                .get(api)
+                .header("User-Agent", user_agent)
+                .query("action", "query")
+                .query("format", "json")
+                .query("formatversion", "2")
+                .query("prop", "imageinfo")
+                .query("iiprop", "extmetadata|url")
+                .query("titles", format!("File:{file}"))
+                .call()
+                .and_then(|mut r| r.body_mut().read_json::<Value>())
+        })
+        .map(|mut info| {
+            info.pointer_mut("/query/pages/0")
+                .map(Value::take)
+                .unwrap_or_default()
+        })
+    };
+    let mut file_page =
+        image_info(COMMONS_API).map_err(|e| format!("Commons request failed: {e}"))?;
+    let on_commons = file_page["missing"].as_bool() != Some(true);
+    if !on_commons {
+        if !args.allow_non_free {
+            return none(format!("`{file}` is not on Commons (likely non-free)"));
+        }
+        file_page =
+            image_info(WIKIPEDIA_API).map_err(|e| format!("Wikipedia request failed: {e}"))?;
+        if file_page["missing"].as_bool() == Some(true) {
+            return none(format!("`{file}` is on neither Commons nor Wikipedia"));
+        }
     }
     let image = &file_page["imageinfo"][0];
     let meta = &image["extmetadata"];
@@ -289,14 +319,19 @@ fn fetch(
     };
     let artist = field("Artist").unwrap_or_else(|| "Unknown author".to_string());
     let license_url = field("LicenseUrl");
+    // Some free files live only on English Wikipedia, so where a file is
+    // hosted says nothing: trust the NonFree flag set by fair-use templates.
+    let non_free = field("NonFree").as_deref() == Some("true");
     let source_url = image["descriptionurl"]
         .as_str()
         .map(str::to_string)
         .unwrap_or_else(|| {
-            format!(
-                "https://commons.wikimedia.org/wiki/File:{}",
-                file.replace(' ', "_")
-            )
+            let host = if on_commons {
+                "commons.wikimedia.org"
+            } else {
+                "en.wikipedia.org"
+            };
+            format!("https://{host}/wiki/File:{}", file.replace(' ', "_"))
         });
 
     // 3. Download the thumbnail. Its URL may carry a query string.
@@ -329,6 +364,7 @@ fn fetch(
         license,
         license_url,
         source_url,
+        non_free,
     }))
 }
 

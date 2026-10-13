@@ -1507,21 +1507,6 @@ clues = [
 ]
 
 [[person]]
-id = "hamano"
-name = "Junio Hamano"
-country = "Japan"
-wikipedia = "Junio_Hamano"
-category = "tools"
-creations = [
-  { name = "Git maintainership", year = 2005, kind = "tool" },
-]
-clues = [
-  "Japanese software engineer at Google",
-  "Took over a version control project months after it started",
-  "Has maintained Git since July 2005",
-]
-
-[[person]]
 id = "marriott"
 name = "Nicholas Marriott"
 country = "UK"

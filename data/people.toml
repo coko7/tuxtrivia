@@ -1238,6 +1238,23 @@ clues = [
   "Microsoft bought it and it became MS-DOS",
 ]
 
+[[person]]
+id = "davis"
+name = "Terry A. Davis"
+born = 1969
+country = "USA"
+wikipedia = "Terry_A._Davis"
+category = "distros"
+creations = [
+  { name = "TempleOS", kind = "os" },
+  { name = "HolyC", kind = "language" },
+]
+clues = [
+  "Programmed VAX machines at Ticketmaster in the 1990s",
+  "Said God required his OS to use 640×480 graphics in 16 colours",
+  "Wrote an entire OS, its compiler and its C dialect single-handedly",
+]
+
 # ─── CLI, tools & infrastructure ──────────────────────────────────────
 
 [[person]]

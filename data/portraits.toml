@@ -584,6 +584,13 @@ source_url = "https://msdos.club/wp-content/uploads/2020/10/tim_paterson.jpg"
 non_free = true
 
 [[portrait]]
+id = "davis"
+file = "davis.jpg"
+artist = "Terry A. Davis"
+license = "Public domain"
+source_url = "https://commons.wikimedia.org/wiki/File:Terry_A._Davis_(cropped).jpg"
+
+[[portrait]]
 id = "stenberg"
 file = "stenberg.jpg"
 artist = "Daniel Stenberg casually green.jpg: Deniel Stenberg derivative work: Akishima Yuka"

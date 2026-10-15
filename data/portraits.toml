@@ -536,14 +536,6 @@ source_url = "https://usesthis.com/interviews/judd.vinet/"
 non_free = true
 
 [[portrait]]
-id = "griffin"
-file = "griffin.png"
-artist = "Unknown author"
-license = "Unknown (all rights reserved)"
-source_url = "https://www.abclinuxu.cz/images/screenshots/0/5/121650-aaron-griffin-mini-14329.png"
-non_free = true
-
-[[portrait]]
 id = "robbins"
 file = "robbins.jpg"
 artist = "Unknown author"

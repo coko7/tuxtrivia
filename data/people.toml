@@ -1121,20 +1121,6 @@ clues = [
 ]
 
 [[person]]
-id = "griffin"
-name = "Aaron Griffin"
-country = "USA"
-category = "distros"
-creations = [
-  { name = "Arch Linux project leadership", year = 2007, kind = "distro" },
-]
-clues = [
-  "Took over a rolling-release distro in 2007",
-  "Led it for over a decade before handing over in 2020",
-  "Handed leadership to Levente Polyak",
-]
-
-[[person]]
 id = "robbins"
 name = "Daniel Robbins"
 country = "USA"
